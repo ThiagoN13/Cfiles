@@ -1,4 +1,5 @@
-#include "../string.variavel.h"
+#include "string.variavel.h"
+#include "locale.h"
 
 char x;
 
@@ -21,7 +22,7 @@ void limpaVet( unsigned int pos , unsigned int qtd );
 unsigned int cadastrados = 0;
 
 int main( void ){
-
+	setlocale(LC_ALL,"Portuguese");
 	unsigned int opcao;
 
 	do{
@@ -41,9 +42,9 @@ int main( void ){
 		switch( opcao ){
 			case 1:
 				do{
-					if( cadastrados + 1 >= 3 ) printf( "DEBUG\n" );
+					if( cadastrados + 1 >= 3 );
 					atividades = (afazeres *) realloc( atividades , ++cadastrados * sizeof( afazeres ) );
-					printf( "DEBUG: Passou realloc\n" );
+
 				}while( cadastrar( cadastrados ) != 0 );
 				break;
 			case 2:
@@ -112,7 +113,7 @@ void printaTudo( unsigned int qtd , short estado ){
 
 	unsigned int j = 0 , jTot = 0 , jY = 0;
 
-	if( qtd <= 0 ){ printf( "\n\n####### NÂO EXISTEM TAREDAS CADASTRADAS! #######\n\n" ); return; }
+	if( qtd <= 0 ){ printf( "\n\n####### NÂO EXISTEM TAREFAS CADASTRADAS! #######\n\n" ); return; }
 
 	switch( estado ){
 		case 1:
